@@ -41,6 +41,21 @@ import { map } from '../map/core/MapView';
 import useSettingsStyles from './common/useSettingsStyles';
 import fetchOrThrow from '../common/util/fetchOrThrow';
 
+const chartToggleOptions = [
+  { key: 'chartTotalDevices', label: 'Total Devices Chart' },
+  { key: 'chartTotalUsers', label: 'Total Users Chart' },
+  { key: 'chartOnlineStatus', label: 'Online vs Offline Chart' },
+  { key: 'chartActiveDevices', label: 'Active Devices (24h) Chart' },
+  { key: 'chartDevicesByCategory', label: 'Devices by Category Chart' },
+  { key: 'chartDevicesByProtocol', label: 'Devices by Protocol Chart' },
+  { key: 'chartIdleVsMovement', label: 'Movement vs Idle Chart' },
+  { key: 'chartMileage', label: 'Daily Mileage Chart' },
+  { key: 'chartAverageSpeed', label: 'Average Speed Chart' },
+  { key: 'chartEvents', label: 'Active Alarms / Events Chart' },
+  { key: 'chartTopSpeed', label: 'Top Speeding Instances Chart' },
+  { key: 'chartReportsPerDay', label: 'Position Reports Per Day Chart' },
+];
+
 const UserPage = () => {
   const { classes } = useSettingsStyles();
   const navigate = useNavigate();
@@ -277,6 +292,28 @@ const UserPage = () => {
                   <MenuItem value="ft">{t('sharedFeet')}</MenuItem>
                 </Select>
               </FormControl>
+              <FormGroup>
+                {chartToggleOptions.map((option) => (
+                  <FormControlLabel
+                    key={option.key}
+                    control={
+                      <Checkbox
+                        checked={item.attributes?.[option.key] !== 'false'}
+                        onChange={(e) =>
+                          setItem({
+                            ...item,
+                            attributes: {
+                              ...item.attributes,
+                              [option.key]: e.target.checked ? 'true' : 'false',
+                            },
+                          })
+                        }
+                      />
+                    }
+                    label={option.label}
+                  />
+                ))}
+              </FormGroup>
               <FormControl>
                 <InputLabel>{t('settingsVolumeUnit')}</InputLabel>
                 <Select

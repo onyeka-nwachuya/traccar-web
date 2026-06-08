@@ -16,6 +16,7 @@ import { useLocation } from 'react-router-dom';
 import { useTranslation } from '../../common/components/LocalizationProvider';
 import { useAdministrator, useRestriction } from '../../common/util/permissions';
 import MenuItem from '../../common/components/MenuItem';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const ReportsMenu = () => {
   const t = useTranslation();
@@ -48,6 +49,12 @@ const ReportsMenu = () => {
   return (
     <>
       <List>
+        <MenuItem
+          title={t('reportDashboard')}
+          link={buildLink('/reports/dashboard')}
+          icon={<DashboardIcon />}
+          selected={location.pathname === '/reports/dashboard'}
+        />
         <MenuItem
           title={t('reportCombined')}
           link={buildLink('/reports/combined')}

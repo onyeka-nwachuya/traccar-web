@@ -409,6 +409,185 @@ const PreferencesPage = () => {
         </Accordion>
         {!readonly && (
           <>
+            {admin && (
+              <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant="subtitle1">{t('reportDashboard')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails className={classes.details}>
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartTotalUsers !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartTotalUsers: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Total Users Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartTotalDevices !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartTotalDevices: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Total Device Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartOnlineStatus !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartOnlineStatus: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Online vs Offline Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartActiveDevices !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartActiveDevices: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Active Devices (24h) Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartDevicesByCategory !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartDevicesByCategory: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Devices by Category Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartDevicesByProtocol !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartDevicesByProtocol: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Devices by Protocol Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartIdleVsMovement !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartIdleVsMovement: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Movement vs Idle Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartMileage !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartMileage: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Daily Mileage Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartAverageSpeed !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartAverageSpeed: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Average Speed Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartEvents !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartEvents: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Active Alarms / Events Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartTopSpeed !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartTopSpeed: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Top Speeding Instances Chart"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={attributes.chartReportsPerDay !== 'false'}
+                          onChange={(e) =>
+                            setAttributes({
+                              ...attributes,
+                              chartReportsPerDay: e.target.checked ? 'true' : 'false',
+                            })
+                          }
+                        />
+                      }
+                      label="Position Reports Per Day Chart"
+                    />
+                  </FormGroup>
+                </AccordionDetails>
+              </Accordion>
+            )}
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1">{t('sharedInfoTitle')}</Typography>
