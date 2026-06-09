@@ -32,9 +32,11 @@ const TotalUsers = () => {
 
   return (
     <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 50, fontWeight: 700, color: "#333" }}>
-        <span><PeopleIcon fontSize="inherit" /></span>
-        <span>{users.length}</span>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+        <div style={{ display: "`flex`", alignItems: "center", gap: 12, fontSize: 50, fontWeight: 700, color: "#333" }}>
+          <div><PeopleIcon fontSize="inherit" /></div>
+          <div>{users.length}</div>
+        </div>
       </div>
     </div>
   );

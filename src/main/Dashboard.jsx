@@ -35,7 +35,7 @@ const Dashboard = () => {
     <PageLayout menu={<ReportsMenu />} breadcrumbs={['reportTitle', 'reportDashboard']}>
       <Grid container spacing={3}>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           {isChartEnabled('chartTotalDevices') && (
             <Grid item xs={12} md={6} lg={4}>
               <Paper sx={{ p: 2, minHeight: 200, height: 200, display: "flex", flexDirection: "column" }}>
@@ -57,8 +57,9 @@ const Dashboard = () => {
               </Paper>
             </Grid>
           )}
-            </Grid>
+        </Grid>
 
+        <Grid container spacing={3}>
           {isChartEnabled('chartOnlineStatus') && (
             <Grid item xs={12} md={6} lg={4}>
               <Paper sx={{ p: 2, minHeight: 400, height: 400, display: "flex", flexDirection: "column" }}>
@@ -168,8 +169,8 @@ const Dashboard = () => {
               </Paper>
             </Grid>
           )}
-
         </Grid>
+      </Grid>
     </PageLayout>
   )
 }
