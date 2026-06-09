@@ -18,7 +18,9 @@ const SideNav = ({ routes }) => {
         route.subheader ? (
           <Fragment key={route.subheader}>
             <Divider />
-            <ListSubheader>{route.subheader}</ListSubheader>
+            <ListSubheader sx={{ fontWeight: 700, lineHeight: 1.2 }}>
+              {route.subheader}
+            </ListSubheader>
           </Fragment>
         ) : (
           <ListItemButton
@@ -27,8 +29,9 @@ const SideNav = ({ routes }) => {
             key={route.href}
             to={route.href}
             selected={location.pathname.match(route.match || route.href) !== null}
+            sx={{ px: 2 }}
           >
-            <ListItemIcon>{route.icon}</ListItemIcon>
+            <ListItemIcon sx={{ minWidth: 40, mr: 1 }}>{route.icon}</ListItemIcon>
             <ListItemText primary={route.name} />
           </ListItemButton>
         ),
@@ -38,3 +41,4 @@ const SideNav = ({ routes }) => {
 };
 
 export default SideNav;
+

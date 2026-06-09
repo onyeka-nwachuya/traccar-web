@@ -18,6 +18,42 @@ export default {
       },
     },
   },
+  MuiCard: {
+    styleOverrides: {
+      root: ({ theme }) => ({
+        borderRadius: 14,
+        backgroundImage: 'none',
+      }),
+    },
+  },
+  MuiPaper: {
+    styleOverrides: {
+      root: ({ theme }) => ({
+        borderRadius: 14,
+      }),
+    },
+  },
+  MuiDrawer: {
+    styleOverrides: {
+      paper: ({ theme }) => ({
+        borderRight: `1px solid ${theme.palette.divider}`,
+      }),
+    },
+  },
+  MuiListItemButton: {
+    styleOverrides: {
+      root: ({ theme }) => ({
+        borderLeft: '3px solid transparent',
+        '&.Mui-selected': {
+          backgroundColor: theme.palette.action.selected,
+          borderLeftColor: theme.palette.primary.main,
+          '&:hover': {
+            backgroundColor: theme.palette.action.selected,
+          },
+        },
+      }),
+    },
+  },
   MuiFormControl: {
     defaultProps: {
       size: 'small',
@@ -47,3 +83,4 @@ export default {
     },
   },
 };
+

@@ -113,7 +113,7 @@ const PageLayout = ({ menu, breadcrumbs, children }) => {
         <Drawer
           variant="permanent"
           className={classes.desktopDrawer}
-          slotProps={{ paper: { className: classes.desktopDrawer } }}
+          slotProps={{ paper: { className: classes.desktopDrawer, elevation: 0 } }}
         >
           <Toolbar>
             {!miniVariant && (
@@ -145,6 +145,7 @@ const PageLayout = ({ menu, breadcrumbs, children }) => {
           <Divider />
           {menu}
         </Drawer>
+
       ) : (
         <Drawer
           variant="temporary"
