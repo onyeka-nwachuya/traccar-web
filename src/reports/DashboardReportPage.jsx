@@ -2,8 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { useTranslation } from '../common/components/LocalizationProvider';
 import PageLayout from '../common/components/PageLayout';
-import ReportsMenu from '../reports/components/ReportsMenu';
-import useReportStyles from '../reports/common/useReportStyles';
+import ReportsMenu from './components/ReportsMenu';
+import useReportStyles from './common/useReportStyles';
 import { Grid, Paper, Typography, Box } from "@mui/material";
 import OnlineStatusChart from "./charts/OnlineStatusChart";
 import MileageChart from "./charts/MileageChart";
@@ -19,7 +19,7 @@ import AverageSpeedChart from "./charts/AverageSpeedChart";
 import TotalUsers from "./charts/TotalUsers";
 
 
-const Dashboard = () => {
+const DashboardReportPage = () => {
   const { classes } = useReportStyles();
   const t = useTranslation();
   const user = useSelector((state) => state.session.user);
@@ -175,6 +175,6 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default DashboardReportPage
 
 

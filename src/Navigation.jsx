@@ -9,7 +9,7 @@ import { devicesActions } from './store';
 import { generateLoginToken } from './common/components/NativeInterface';
 import { useLocalization } from './common/components/LocalizationProvider';
 import fetchOrThrow from './common/util/fetchOrThrow';
-import Dashboard from './main/Dashboard';
+import DashboardReportPage from './reports/DashboardReportPage';
 
 const CombinedReportPage = lazy(() => import('./reports/CombinedReportPage'));
 const PositionsReportPage = lazy(() => import('./reports/PositionsReportPage'));
@@ -181,7 +181,7 @@ const Navigation = () => {
           </Route>
 
           <Route path="reports">
-            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="dashboard" element={<DashboardReportPage />} />
             <Route path="combined" element={<CombinedReportPage />} />
             <Route path="chart" element={<ChartReportPage />} />
             <Route path="events" element={<EventReportPage />} />
