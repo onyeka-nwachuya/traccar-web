@@ -17,6 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from './LocalizationProvider';
 import BackIcon from './BackIcon';
+import BottomMenu from './BottomMenu';
 
 const useStyles = makeStyles()((theme, { miniVariant }) => ({
   root: {
@@ -28,6 +29,8 @@ const useStyles = makeStyles()((theme, { miniVariant }) => ({
   },
   desktopDrawer: {
     width: miniVariant ? theme.spacing(7) : theme.dimensions.drawerWidthDesktop,
+    display: 'flex',
+    flexDirection: 'column',
     overflowX: 'hidden',
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -41,6 +44,16 @@ const useStyles = makeStyles()((theme, { miniVariant }) => ({
         display: 'none',
       },
     }),
+    '@media print': {
+      display: 'none',
+    },
+  },
+  drawerMenu: {
+    flex: 1,
+    overflowY: 'auto',
+  },
+  footer: {
+    marginTop: 'auto',
     '@media print': {
       display: 'none',
     },
@@ -63,6 +76,11 @@ const useStyles = makeStyles()((theme, { miniVariant }) => ({
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'auto',
+  },
+  footer: {
+    '@media print': {
+      display: 'none',
+    },
   },
 }));
 
@@ -143,7 +161,14 @@ const PageLayout = ({ menu, breadcrumbs, children }) => {
             </IconButton>
           </Toolbar>
           <Divider />
-          {menu}
+          <div className={classes.drawerMenu}>
+            {menu}
+          </div>
+          {desktop && (
+            <div className={classes.footer}>
+              <BottomMenu />
+            </div>
+          )}
         </Drawer>
       ) : (
         <Drawer

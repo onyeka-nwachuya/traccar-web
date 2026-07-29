@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField, Typography, Snackbar, IconButton } from '@mui/material';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import { makeStyles } from 'tss-react/mui';
 import { useNavigate } from 'react-router-dom';
 import LoginLayout from './LoginLayout';
@@ -64,8 +65,27 @@ const RegisterPage = () => {
     setSnackbarOpen(true);
   });
 
+  const panel = (
+    <div className={classes.panelContent}>
+      <div>
+        <Typography variant="h3" className={classes.panelTitle} gutterBottom>
+          Get Started
+        </Typography>
+        <Typography className={classes.panelText}>
+          Create your GPS tracking account and unlock real-time fleet insights with an elegant, secure interface.
+        </Typography>
+      </div>
+      <div className={classes.qrBox}>
+        <PersonAddAlt1Icon sx={{ fontSize: 64 }} />
+      </div>
+      <Typography className={classes.panelText}>
+        Secure registration for operators, dispatchers, and managers who need fast access to vehicle location data.
+      </Typography>
+    </div>
+  );
+
   return (
-    <LoginLayout>
+    <LoginLayout panel={panel}>
       <div className={classes.container}>
         <div className={classes.header}>
           {!server.newServer && (

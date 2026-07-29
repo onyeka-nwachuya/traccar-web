@@ -57,8 +57,27 @@ const ResetPasswordPage = () => {
     setSnackbarOpen(true);
   });
 
+  const panel = (
+    <div className={classes.panelContent}>
+      <div>
+        <Typography variant="h3" className={classes.panelTitle} gutterBottom>
+          Recover Access
+        </Typography>
+        <Typography className={classes.panelText}>
+          Reset your GPS tracking password securely and keep fleet operations uninterrupted.
+        </Typography>
+      </div>
+      <div className={classes.qrBox}>
+        <LockResetIcon sx={{ fontSize: 64 }} />
+      </div>
+      <Typography className={classes.panelText}>
+        Enter your email or a new password to instantly restore access to your tracking dashboard.
+      </Typography>
+    </div>
+  );
+
   return (
-    <LoginLayout>
+    <LoginLayout panel={panel}>
       <div className={classes.container}>
         <div className={classes.header}>
           <IconButton color="primary" onClick={() => navigate('/login')}>

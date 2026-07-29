@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  useMediaQuery,
   Select,
   MenuItem,
   FormControl,
@@ -11,6 +10,7 @@ import {
   IconButton,
   Tooltip,
   InputAdornment,
+  Typography,
 } from '@mui/material';
 import CountryFlag from 'react-country-flag';
 import { makeStyles } from 'tss-react/mui';
@@ -32,7 +32,6 @@ import {
   nativeEnvironment,
   nativePostMessage,
 } from '../common/components/NativeInterface';
-import LogoImage from './LogoImage';
 import { useCatch } from '../reactHelper';
 import QrCodeDialog from '../common/components/QrCodeDialog';
 import fetchOrThrow from '../common/util/fetchOrThrow';
@@ -164,8 +163,32 @@ const LoginPage = () => {
     }
   }, []);
 
+  const panel = (
+    <div className={classes.panelContent}>
+      <div>
+        <Typography variant="h3" className={classes.panelTitle} gutterBottom>
+          Scan to Login
+        </Typography>
+        <Typography className={classes.panelText}>
+          Use your mobile device to scan the secure QR code. This is the fastest and most secure way to access your fleet dashboard.
+        </Typography>
+      </div>
+      <div className={classes.qrBox}>
+        <QrCode2Icon sx={{ fontSize: 72 }} />
+      </div>
+      <Button
+        variant="outlined"
+        fullWidth
+        className={classes.panelButton}
+        onClick={() => setShowQr(true)}
+      >
+        Show QR Code
+      </Button>
+    </div>
+  );
+
   return (
-    <LoginLayout>
+    <LoginLayout panel={panel}>
       <div className={classes.options}>
         {nativeEnvironment && changeEnabled && (
           <IconButton color="primary" onClick={() => navigate('/change-server')}>
@@ -199,9 +222,6 @@ const LoginPage = () => {
         )}
       </div>
       <div className={classes.container}>
-        {useMediaQuery(theme.breakpoints.down('lg')) && (
-          <LogoImage color={theme.palette.primary.main} />
-        )}
         {!openIdForced && (
           <>
             <TextField
